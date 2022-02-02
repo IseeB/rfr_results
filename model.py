@@ -8,6 +8,8 @@ from modules.RFRNet import RFRNet, VGG16FeatureExtractor
 import os
 import time
 import cv2
+import numpy as np
+import matplotlib.pyplot as plt
 
 class RFRNetModel():
     def __init__(self):
