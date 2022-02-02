@@ -97,19 +97,9 @@ class RFRNetModel():
             for k in range(comp_B.size(0)):
                 count += 1
                 grid = make_grid(comp_B[k:k+1])
-                
-                print("im1")
-                npimg = grid.cpu().numpy()
-                
-                a=np.transpose(npimg, (1, 2, 0))
-                plt.imshow(a)
-                cv2_imshow(np.transpose(npimg, (1, 2, 0)))
-                plt.imshow(np.transpose(npimg, (1, 2, 0)))
-                plt.show()
-                
+           
             
-            
-                file_path = '{:s}/results/img_{:d}.png'.format('results/', count)
+                file_path = './results/img_2.png'.format('results/', count)
                 save_image(grid, file_path)
                 
                 grid = make_grid(masked_images[k:k+1] +1 - masks[k:k+1] )
