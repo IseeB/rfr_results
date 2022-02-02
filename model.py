@@ -93,6 +93,7 @@ class RFRNetModel():
                 os.makedirs('{:s}/results'.format(result_save_path))
             for k in range(comp_B.size(0)):
                 count += 1
+                print(comp_B[k:k+1])
                 grid = make_grid(comp_B[k:k+1])
                 file_path = '{:s}/results/img_{:d}.png'.format(result_save_path, count)
                 save_image(grid, file_path)
