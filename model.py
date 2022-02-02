@@ -79,9 +79,6 @@ class RFRNetModel():
             os.makedirs('{:s}'.format(save_path))
             save_ckpt('{:s}/g_{:s}.pth'.format(save_path, "final"), [('generator', self.G)], [('optimizer_G', self.optm_G)], self.iter)
     
-    def show(img):
-        npimg = img.numpy()
-        plt.imshow(np.transpose(npimg, (1,2,0)), interpolation='nearest')
     
     def test(self, test_loader, result_save_path):
         self.G.eval()
@@ -99,20 +96,25 @@ class RFRNetModel():
             for k in range(comp_B.size(0)):
                 count += 1
                 grid = make_grid(comp_B[k:k+1])
+                grid = grid / 2 + 0.5     # unnormalize
+                npimg = grid.numpy()
+                plt.imshow(np.transpose(npimg, (1, 2, 0)))
+                plt.show()
                 print("grid1")
-                grid.shape
-                torch.Size([3, 518, 1292])
-                plt.imshow(grid.permute(1, 2, 0))
+            
             
                 file_path = '{:s}/results/img_{:d}.png'.format(result_save_path, count)
                 save_image(grid, file_path)
                 
                 grid = make_grid(masked_images[k:k+1] +1 - masks[k:k+1] )
                 print("grid2")
+                grid = grid / 2 + 0.5     # unnormalize
                 npimg = grid.numpy()
-                plt.imshow(np.transpose(npimg, (1,2,0)), interpolation='nearest')
+                plt.imshow(np.transpose(npimg, (1, 2, 0)))
+                plt.show()
+              
                 file_path = '{:s}/results/masked_img_{:d}.png'.format(result_save_path, count)
-                print(grid)   
+                 
                 save_image(grid, file_path)
     
     def forward(self, masked_image, mask, gt_image):
