@@ -109,7 +109,7 @@ class RFRNetModel():
                 
             
             
-                file_path = '{:s}/results/img_{:d}.png'.format('results', count)
+                file_path = '{:s}/results/img_{:d}.png'.format('results/', count)
                 save_image(grid, file_path)
                 
                 grid = make_grid(masked_images[k:k+1] +1 - masks[k:k+1] )
@@ -119,7 +119,7 @@ class RFRNetModel():
                 plt.imshow(np.transpose(npimg, (1, 2, 0)))
                 plt.show()
               
-                file_path = '{:s}/results/masked_img_{:d}.png'.format('./results', count)
+                file_path = '{:s}/results/masked_img_{:d}.png'.format('./results/', count)
                  
                 save_image(grid, file_path)
     
