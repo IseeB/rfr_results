@@ -95,13 +95,14 @@ class RFRNetModel():
                 count += 1
                 grid = make_grid(comp_B[k:k+1])
                 print("grid1")
-                show(grid)
+                plt.show(grid)
+                plt.imshow(grid)
                 file_path = '{:s}/results/img_{:d}.png'.format(result_save_path, count)
                 save_image(grid, file_path)
                 
                 grid = make_grid(masked_images[k:k+1] +1 - masks[k:k+1] )
                 print("grid2")
-                show(grid)
+                plt.show(grid)
                 file_path = '{:s}/results/masked_img_{:d}.png'.format(result_save_path, count)
                 print(grid)   
                 save_image(grid, file_path)
