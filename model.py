@@ -96,7 +96,6 @@ class RFRNetModel():
             for k in range(comp_B.size(0)):
                 count += 1
                 grid = make_grid(comp_B[k:k+1])
-                grid = grid / 2 + 0.5     # unnormalize
                 npimg = grid.cpu().numpy()
                 plt.imshow(np.transpose(npimg, (1, 2, 0)))
                 plt.show()
@@ -108,7 +107,6 @@ class RFRNetModel():
                 
                 grid = make_grid(masked_images[k:k+1] +1 - masks[k:k+1] )
                 print(grid)
-                grid = grid / 2 + 0.5     # unnormalize
                 npimg = grid.cpu().numpy()
                 plt.imshow(np.transpose(npimg, (1, 2, 0)))
                 plt.show()
