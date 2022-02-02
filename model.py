@@ -100,9 +100,9 @@ class RFRNetModel():
                 count += 1
                 grid = make_grid(comp_B[k:k+1])
                 print("grid1")
-                npimg = grid.numpy()
-                plt.imshow(np.transpose(npimg, (1,2,0)), interpolation='nearest')
-                
+                grid.shape
+                torch.Size([3, 518, 1292])
+                plt.imshow(grid.permute(1, 2, 0))
             
                 file_path = '{:s}/results/img_{:d}.png'.format(result_save_path, count)
                 save_image(grid, file_path)
