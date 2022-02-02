@@ -97,7 +97,9 @@ class RFRNetModel():
                 
                 grid = make_grid(masked_images[k:k+1] +1 - masks[k:k+1] )
                 file_path = '{:s}/results/masked_img_{:d}.png'.format(result_save_path, count)
+                print("okay",grid)
                 save_image(grid, file_path)
+                print("saved")
     
     def forward(self, masked_image, mask, gt_image):
         self.real_A = masked_image
