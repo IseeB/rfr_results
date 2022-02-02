@@ -10,6 +10,7 @@ import time
 import cv2
 import numpy as np
 import matplotlib.pyplot as plt
+from google.colab.patches import cv2_imshow
 
 class RFRNetModel():
     def __init__(self):
@@ -99,6 +100,7 @@ class RFRNetModel():
                 
                 print("im1")
                 npimg = grid.cpu().numpy()
+                cv2_imshow(np.transpose(npimg, (1, 2, 0)))
                 plt.imshow(np.transpose(npimg, (1, 2, 0)))
                 plt.show()
                 
