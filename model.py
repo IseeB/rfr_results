@@ -100,14 +100,14 @@ class RFRNetModel():
                 npimg = grid.numpy()
                 plt.imshow(np.transpose(npimg, (1, 2, 0)))
                 plt.show()
-                print("grid1")
+                print(grid)
             
             
                 file_path = '{:s}/results/img_{:d}.png'.format(result_save_path, count)
                 save_image(grid, file_path)
                 
                 grid = make_grid(masked_images[k:k+1] +1 - masks[k:k+1] )
-                print("grid2")
+                print(grid)
                 grid = grid / 2 + 0.5     # unnormalize
                 npimg = grid.numpy()
                 plt.imshow(np.transpose(npimg, (1, 2, 0)))
