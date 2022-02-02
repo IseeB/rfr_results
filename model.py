@@ -102,7 +102,7 @@ class RFRNetModel():
                 npimg = grid.cpu().numpy()
                 
                 a=np.transpose(npimg, (1, 2, 0))
-                plt.show(a)
+                plt.imshow(a)
                 cv2_imshow(np.transpose(npimg, (1, 2, 0)))
                 plt.imshow(np.transpose(npimg, (1, 2, 0)))
                 plt.show()
