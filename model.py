@@ -78,6 +78,11 @@ class RFRNetModel():
         if not os.path.exists('{:s}'.format(save_path)):
             os.makedirs('{:s}'.format(save_path))
             save_ckpt('{:s}/g_{:s}.pth'.format(save_path, "final"), [('generator', self.G)], [('optimizer_G', self.optm_G)], self.iter)
+    
+    def show(img):
+        npimg = img.numpy()
+        plt.imshow(np.transpose(npimg, (1,2,0)), interpolation='nearest')
+    
     def test(self, test_loader, result_save_path):
         self.G.eval()
         for para in self.G.parameters():
@@ -95,14 +100,14 @@ class RFRNetModel():
                 count += 1
                 grid = make_grid(comp_B[k:k+1])
                 print("grid1")
-                plt.show(grid)
-                plt.imshow(grid)
+                show(grid)
+            
                 file_path = '{:s}/results/img_{:d}.png'.format(result_save_path, count)
                 save_image(grid, file_path)
                 
                 grid = make_grid(masked_images[k:k+1] +1 - masks[k:k+1] )
                 print("grid2")
-                plt.show(grid)
+                show(grid)
                 file_path = '{:s}/results/masked_img_{:d}.png'.format(result_save_path, count)
                 print(grid)   
                 save_image(grid, file_path)
