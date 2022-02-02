@@ -100,6 +100,11 @@ class RFRNetModel():
            
             
                 #file_path = './results/img_2.png'.format('results/', count)
+                a=np. transpose (npimg, (1, 2, 0) )
+                plt.imshow(a)
+                cv2_imshow(np. transpose (npimg,(1, 2, 0)))
+                plt.imshow(np. transpose (npimg, (1, 2, 0)))
+                plt.show()
                 save_image(grid, './results/img_2.png')
                 
                 grid = make_grid(masked_images[k:k+1] +1 - masks[k:k+1] )
