@@ -104,8 +104,10 @@ class RFRNetModel():
                 npimg = grid.cpu().numpy()
                 a=np.transpose(npimg, (1, 2, 0) )
                 img = Image.fromarray(a, 'RGB')
+                print("np")
                 img.save('my.png')
                 img.show()
+                print("image")
                 
                 
                 #plt.imshow(a)
