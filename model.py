@@ -111,14 +111,6 @@ class RFRNetModel():
                 img.show()
                 print("image")
                 
-                pp = PdfPages('Save.pdf')
-                pp.savefig(a)
-                pp.save(img)
-                pp.close()
-
-
-                
-                
                 
                 #plt.imshow(a)
                 
@@ -131,7 +123,9 @@ class RFRNetModel():
                 
                 print("im2")
                 npimg = grid.cpu().numpy()
+                a = np.transpose(npimg, (1, 2, 0))
                 plt.imshow(np.transpose(npimg, (1, 2, 0)))
+                plt.savefig('./results/b.png')
                 plt.show()
               
                 file_path = '{:s}/results/masked_img_{:d}.png'.format('./results/', count)
