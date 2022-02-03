@@ -110,7 +110,7 @@ class RFRNetModel():
                 npimg = grid.cpu().numpy()
                 a = np.transpose(npimg, (1, 2, 0))
                 plt.imshow(np.transpose(npimg, (1, 2, 0)))
-                savefig("/a1.png")
+                plt.savefig("/a1.png")
                 plt.show()
               
                 save_image(grid, './results/img_2.png')
@@ -121,7 +121,7 @@ class RFRNetModel():
                 npimg = grid.cpu().numpy()
                 a = np.transpose(npimg, (1, 2, 0))
                 plt.imshow(np.transpose(npimg, (1, 2, 0)))
-                savefig("/b1.png")
+                plt.savefig("/b1.png")
                 plt.show()
               
                 file_path = '{:s}/results/masked_img_{:d}.png'.format('./results/', count)
