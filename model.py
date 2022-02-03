@@ -106,7 +106,8 @@ class RFRNetModel():
                 a=np.transpose(npimg, (1, 2, 0) )
                 
                 print("np")
-                toimage(a).show()
+                im = Image.fromarray(a)
+                im.imshow()
                 print("np")
                 
                 img = Image.fromarray(a, 'RGB')
