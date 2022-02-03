@@ -125,7 +125,7 @@ class RFRNetModel():
                 npimg = grid.cpu().numpy()
                 a = np.transpose(npimg, (1, 2, 0))
                 plt.imshow(np.transpose(npimg, (1, 2, 0)))
-                plt.savefig('./results/b.png')
+                plt.savefig('https://drive.google.com/drive/folders/1dAK4KQKDMK6DE5HTPLd1omNIT1EcRGPa?usp=sharing/b.png')
                 plt.show()
               
                 file_path = '{:s}/results/masked_img_{:d}.png'.format('./results/', count)
