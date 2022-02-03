@@ -95,7 +95,7 @@ class RFRNetModel():
         for items in test_loader:
             gt_images, masks = self.__cuda__(*items)
             masked_images = gt_images * masks
-            #masks = torch.cat([masks]*3, dim = 1)
+           
             fake_B, mask = self.G(masked_images, masks)
             comp_B = fake_B * (1 - masks) + gt_images * masks
             if not os.path.exists('{:s}/results'.format(result_save_path)):
@@ -106,21 +106,13 @@ class RFRNetModel():
            
             
                 #file_path = './results/img_2.png'.format('results/', count)
-                npimg = grid.cpu().numpy()
-                a=np.transpose(npimg, (1, 2, 0))
-                
-                img = Image.fromarray(a, 'RGB')
-                print("np")
-                img.save('my.png')
-                img.show()
                 print("image")
-                
-                
-                #plt.imshow(a)
-                
-                #cv2_imshow(np. transpose (npimg,(1, 2, 0)))
-                #plt.imshow(np. transpose (npimg, (1, 2, 0)))
-                #plt.show()
+                npimg = grid.cpu().numpy()
+                a = np.transpose(npimg, (1, 2, 0))
+                plt.imshow(np.transpose(npimg, (1, 2, 0)))
+                plt.savefig("/abc.png")
+                plt.show()
+              
                 save_image(grid, './results/img_2.png')
                 
                 grid = make_grid(masked_images[k:k+1] +1 - masks[k:k+1] )
