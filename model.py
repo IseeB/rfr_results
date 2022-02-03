@@ -12,6 +12,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 from google.colab.patches import cv2_imshow
 from PIL import Image
+%matplotlib inline
 
 class RFRNetModel():
     def __init__(self):
