@@ -99,7 +99,7 @@ class RFRNetModel():
             fake_B, mask = self.G(masked_images, masks)
             comp_B = fake_B * (1 - masks) + gt_images * masks
             if not os.path.exists('{:s}/results'.format(result_save_path)):
-                os.makedirs('/results'.format(result_save_path))
+                retrun 1
             for k in range(comp_B.size(0)):
                 count += 1
                 grid = make_grid(comp_B[k:k+1])
