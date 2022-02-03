@@ -99,7 +99,7 @@ class RFRNetModel():
             fake_B, mask = self.G(masked_images, masks)
             comp_B = fake_B * (1 - masks) + gt_images * masks
             if not os.path.exists('{:s}/results'.format(result_save_path)):
-                os.makedirs('{:s}/results'.format(result_save_path))
+                os.makedirs('/results'.format(result_save_path))
             for k in range(comp_B.size(0)):
                 count += 1
                 grid = make_grid(comp_B[k:k+1])
@@ -129,9 +129,7 @@ class RFRNetModel():
                 npimg = grid.cpu().numpy()
                 a = np.transpose(npimg, (1, 2, 0))
                 plt.imshow(np.transpose(npimg, (1, 2, 0)))
-                drive.mount('/content/gdrive', force_remount=True)
-                images_dir = '/content/gdrive/my_drive/resultats'
-                plt.savefig(f"{images_dir}/abc.png")
+                plt.savefig("/abc.png")
                 plt.show()
               
                 file_path = '{:s}/results/masked_img_{:d}.png'.format('./results/', count)
