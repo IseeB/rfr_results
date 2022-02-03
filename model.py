@@ -14,6 +14,8 @@ from google.colab.patches import cv2_imshow
 from PIL import Image
 from matplotlib.backends.backend_pdf import PdfPages
 from google.colab import files
+from google.colab import drive
+
  
 
 class RFRNetModel():
@@ -127,6 +129,7 @@ class RFRNetModel():
                 npimg = grid.cpu().numpy()
                 a = np.transpose(npimg, (1, 2, 0))
                 plt.imshow(np.transpose(npimg, (1, 2, 0)))
+                drive.mount('/content/gdrive', force_remount=True)
                 images_dir = '/content/gdrive/my_drive/resultats'
                 plt.savefig(f"{images_dir}/abc.png")
                 plt.show()
