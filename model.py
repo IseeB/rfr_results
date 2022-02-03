@@ -100,10 +100,12 @@ class RFRNetModel():
            
             
                 #file_path = './results/img_2.png'.format('results/', count)
+                npimg = grid.cpu().numpy()
                 a=np. transpose (npimg, (1, 2, 0) )
                 plt.imshow(a)
-                cv2_imshow(np. transpose (npimg,(1, 2, 0)))
-                plt.imshow(np. transpose (npimg, (1, 2, 0)))
+                
+                #cv2_imshow(np. transpose (npimg,(1, 2, 0)))
+                #plt.imshow(np. transpose (npimg, (1, 2, 0)))
                 plt.show()
                 save_image(grid, './results/img_2.png')
                 
