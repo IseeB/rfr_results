@@ -12,6 +12,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 from google.colab.patches import cv2_imshow
 from PIL import Image
+from matplotlib.backends.backend_pdf import PdfPages
 
 class RFRNetModel():
     def __init__(self):
@@ -109,6 +110,14 @@ class RFRNetModel():
                 img.save('my.png')
                 img.show()
                 print("image")
+                
+                pp = PdfPages('Save.pdf')
+                pp.savefig(a)
+                pp.save(img)
+                pp.close()
+
+
+                
                 
                 
                 #plt.imshow(a)
