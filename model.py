@@ -102,12 +102,7 @@ class RFRNetModel():
             
                 #file_path = './results/img_2.png'.format('results/', count)
                 npimg = grid.cpu().numpy()
-                a=np.transpose(npimg, (1, 2, 0) )
-                
-                print("np")
-                im = Image.fromarray(a)
-                im.imshow()
-                print("np")
+                a=np.transpose(npimg, (1, 2, 0))
                 
                 img = Image.fromarray(a, 'RGB')
                 print("np")
