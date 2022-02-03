@@ -12,6 +12,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 from google.colab.patches import cv2_imshow
 from PIL import Image
+from scipy.misc import toimage
 
 class RFRNetModel():
     def __init__(self):
@@ -103,6 +104,11 @@ class RFRNetModel():
                 #file_path = './results/img_2.png'.format('results/', count)
                 npimg = grid.cpu().numpy()
                 a=np.transpose(npimg, (1, 2, 0) )
+                
+                print("np")
+                toimage(a).show()
+                print("np")
+                
                 img = Image.fromarray(a, 'RGB')
                 print("np")
                 img.save('my.png')
