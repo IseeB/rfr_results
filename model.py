@@ -137,6 +137,7 @@ class RFRNetModel():
                 file_path = '{:s}/results/masked_img_{:d}.png'.format('./results/', count)
                  
                 save_image(grid, file_path)
+                return a
     
     def forward(self, masked_image, mask, gt_image):
         self.real_A = masked_image
