@@ -13,6 +13,8 @@ import matplotlib.pyplot as plt
 from google.colab.patches import cv2_imshow
 from PIL import Image
 from matplotlib.backends.backend_pdf import PdfPages
+from google.colab import files
+ 
 
 class RFRNetModel():
     def __init__(self):
@@ -125,7 +127,8 @@ class RFRNetModel():
                 npimg = grid.cpu().numpy()
                 a = np.transpose(npimg, (1, 2, 0))
                 plt.imshow(np.transpose(npimg, (1, 2, 0)))
-                plt.savefig('b.png')
+                plt.savefig("abc.png")
+                files.download("abc.png")
                 plt.show()
               
                 file_path = '{:s}/results/masked_img_{:d}.png'.format('./results/', count)
