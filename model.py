@@ -94,7 +94,7 @@ class RFRNetModel():
         count = 0
         for items in test_loader:
             gt_images, masks = self.__cuda__(*items)
-            masks = masks.view(1,3,256,256)
+            masks = masks.view([1,3,256,256])
             masked_images = gt_images * masks
             #masks = torch.cat([masks]*3, dim = 1)
             fake_B, mask = self.G(masked_images, masks)
