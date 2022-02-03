@@ -11,6 +11,7 @@ import cv2
 import numpy as np
 import matplotlib.pyplot as plt
 from google.colab.patches import cv2_imshow
+from PIL import Image
 
 class RFRNetModel():
     def __init__(self):
@@ -101,12 +102,17 @@ class RFRNetModel():
             
                 #file_path = './results/img_2.png'.format('results/', count)
                 npimg = grid.cpu().numpy()
-                a=np. transpose (npimg, (1, 2, 0) )
-                plt.imshow(a)
+                a=np.transpose(npimg, (1, 2, 0) )
+                img = Image.fromarray(a, 'RGB')
+                img.save('my.png')
+                img.show()
+                
+                
+                #plt.imshow(a)
                 
                 #cv2_imshow(np. transpose (npimg,(1, 2, 0)))
                 #plt.imshow(np. transpose (npimg, (1, 2, 0)))
-                plt.show()
+                #plt.show()
                 save_image(grid, './results/img_2.png')
                 
                 grid = make_grid(masked_images[k:k+1] +1 - masks[k:k+1] )
